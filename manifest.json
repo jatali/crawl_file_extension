@@ -5,7 +5,8 @@
   "description": "在GitHub上显示文件夹链接",
   "permissions": [
     "activeTab",
-    "contextMenus"
+    "contextMenus",
+    "storage"
   ],
   "host_permissions": [
     "https://github.com/*"
@@ -20,8 +21,16 @@
   "background": {
     "service_worker": "background.js"
   },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "16.png",
+      "48": "48.png",
+      "128": "128.png"
+    }
+  },
   "icons": {
-    "48": "icon.png",
-    "128": "icon.png"
+    "48": "48.png",
+    "128": "128.png"
   }
 } 

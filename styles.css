@@ -1,29 +1,47 @@
+/* 定义下载链接的样式 */
 .github-folder-download {
-    position: absolute;
-    right: 10px;
-    background-color: #0366d6;
-    color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 12px;
-    z-index: 1000;
-    transition: background-color 0.2s;
+    position: absolute; /* 使用绝对定位，相对于最近的已定位祖先元素（在这里是a[role="rowheader"]） */
+    right: 10px; /* 距离右侧10px */
+    background-color: #0366d6; /* 背景颜色设置为GitHub蓝色 */
+    color: white; /* 文字颜色设置为白色 */
+    padding: 4px 8px; /* 内边距：上下4px，左右8px */
+    border-radius: 4px; /* 圆角半径为4px */
+    text-decoration: none; /* 去除下划线 */
+    font-size: 12px; /* 字体大小为12px */
+    z-index: 1000; /* 设置较高的z-index以确保在页面上层显示 */
+    transition: background-color 0.2s; /* 添加背景颜色变化的过渡效果，持续0.2秒 */
 }
 
+/* 下载链接在鼠标悬停时的样式 */
 .github-folder-download:hover {
-    background-color: #0245a3;
-    color: white;
-    text-decoration: none;
+    background-color: #0245a3; /* 鼠标悬停时背景颜色变深 */
+    color: white; /* 文字颜色保持白色 */
+    text-decoration: none; /* 保持去除下划线 */
 }
 
+/* 文件夹链接显示元素的样式 */
 .github-folder-link {
-    color: #666;
+    color: #0366d6;
     font-size: 12px;
-    margin-left: 10px;
-    font-style: italic;
+    margin-left: 8px;
+    padding: 2px 6px;
+    background-color: #f1f8ff;
+    border-radius: 3px;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+    vertical-align: middle;
 }
 
+.github-folder-link:hover {
+    background-color: #def;
+    text-decoration: underline;
+}
+
+/* 链接通知框的样式 */
 .github-link-notification {
     position: fixed;
     top: 20px;
@@ -40,6 +58,7 @@
     animation: fadeIn 0.3s ease-in-out;
 }
 
+/* 定义淡入动画的关键帧 */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -51,29 +70,33 @@
     }
 }
 
+/* 定义链接文本块的样式 */
 .link-text {
-    display: block;
-    font-size: 12px;
-    color: #0366d6;
-    word-break: break-all;
-    margin-bottom: 8px;
+    display: block; /* 设为块级元素 */
+    font-size: 12px; /* 字体大小为12px */
+    color: #0366d6; /* 文字颜色设置为GitHub蓝色 */
+    word-break: break-all; /* 当单词过长时允许断行 */
+    margin-bottom: 8px; /* 底部外边距为8px */
 }
 
+/* 复制按钮的样式 */
 .copy-button {
-    background-color: #f6f8fa;
-    border: 1px solid #e1e4e8;
-    border-radius: 4px;
-    padding: 4px 8px;
-    font-size: 12px;
-    color: #24292e;
-    cursor: pointer;
-    transition: background-color 0.2s;
+    background-color: #f6f8fa; /* 背景颜色设置为浅灰色 */
+    border: 1px solid #e1e4e8; /* 边框颜色设置为更浅的灰色 */
+    border-radius: 4px; /* 圆角半径为4px */
+    padding: 4px 8px; /* 内边距：上下4px，左右8px */
+    font-size: 12px; /* 字体大小为12px */
+    color: #24292e; /* 文字颜色设置为深色 */
+    cursor: pointer; /* 鼠标指针变为手型 */
+    transition: background-color 0.2s; /* 添加背景颜色变化的过渡效果，持续0.2秒 */
 }
 
+/* 复制按钮在鼠标悬停时的样式 */
 .copy-button:hover {
-    background-color: #e1e4e8;
+    background-color: #e1e4e8; /* 鼠标悬停时背景颜色变深 */
 }
 
+/* 文件夹元素的样式 */
 a[role="rowheader"] {
-    position: relative;
-} 
+    position: relative; /* 使用相对定位，使得内部的绝对定位元素（如下载链接）能够正确对齐 */
+}

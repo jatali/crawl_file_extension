@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GitHub Crawler</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #urlDisplay {
+      padding: 10px;
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      min-width: 180px;
+      text-align: left;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <h1>GitHub Crawler</h1>
+  <div class="container">
+    <button id="startButton">Start Crawl</button>
+    <div id="urlDisplay">No URL received yet.</div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
