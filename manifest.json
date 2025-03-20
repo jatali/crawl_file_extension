@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub Folder Link",
+  "version": "1.0",
+  "description": "在GitHub上显示文件夹链接",
+  "permissions": [
+    "activeTab",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "https://github.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+} 
