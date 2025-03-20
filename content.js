@@ -72,7 +72,34 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         });
     }
 });
-
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.action === "parsePage") {
+      const { url, directoryPre, filePre } = request;
+  
+      // 这里仅模拟解析页面的行为，实际应用中需要根据页面结构提取所需信息
+      const fileList = [];
+      const newUrls = [];
+  
+      document.querySelectorAll('a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href.startsWith(directoryPre) || href.startsWith(filePre)) {
+          newUrls.push(new URL(href, url).href);
+        }
+      });
+  
+      document.querySelectorAll('.js-navigation-open').forEach(item => {
+        const path = item.getAttribute('data-path');
+        if (path && !fileList.includes(path)) {
+          fileList.push(path);
+        }
+      });
+  
+      sendResponse({
+        fileList,
+        newUrls
+      });
+    }
+  });
 // 监听页面变化
 const observer = new MutationObserver((mutations) => {
     initLinks();
@@ -83,6 +110,7 @@ observer.observe(document.body, {
     childList: true,
     subtree: true
 });
+
 
 // 初始加载时执行
 initLinks();

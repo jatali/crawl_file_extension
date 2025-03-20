@@ -5,36 +5,36 @@ function updateUrlDisplay() {
     });
 }
 
-// document.getElementById("startButton").addEventListener("click", () => {
-//     // 从chrome.storage中读取URL
-//     chrome.storage.local.get(['url'], (result) => {
-//         const url = result.url || "https://github.com/laravel/laravel/tree/5.7/";
-//         const pattern = /tree\/[^/]+\//;
-//         const match = url.match(pattern);
+document.getElementById("startButton").addEventListener("click", () => {
+    // 从chrome.storage中读取URL
+    chrome.storage.local.get(['url'], (result) => {
+        const url = result.url || "https://github.com/laravel/laravel/tree/5.7/";
+        const pattern = /tree\/[^/]+\//;
+        const match = url.match(pattern);
 
-//         if (match) {
-//             const directoryPre = match[0];
-//             const filePre = directoryPre.replace("tree/", "blob/");
+        if (match) {
+            const directoryPre = match[0];
+            const filePre = directoryPre.replace("tree/", "blob/");
 
-//             chrome.runtime.sendMessage(
-//                 {
-//                     action: "startCrawling",
-//                     url,
-//                     directoryPre,
-//                     filePre,
-//                 },
-//                 (response) => {
-//                     console.log(response.status);
-//                 }
-//             );
-//         } else {
-//             console.error("未匹配到'tree/版本号/'模式");
-//         }
-//     });
+            chrome.runtime.sendMessage(
+                {
+                    action: "startCrawling",
+                    url,
+                    directoryPre,
+                    filePre,
+                },
+                (response) => {
+                    console.log(response.status);
+                }
+            );
+        } else {
+            console.error("未匹配到'tree/版本号/'模式");
+        }
+    });
 
-//     // 立即更新显示
-//     updateUrlDisplay();
-// });
+    // 立即更新显示
+    updateUrlDisplay();
+});
 
 // 监听来自content.js的消息（如果需要实时更新）
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
